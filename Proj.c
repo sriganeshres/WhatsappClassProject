@@ -3,6 +3,7 @@
 #include<string.h>
 int main(int argc, char** argv)
 {
+    char p[10000][1000];
     int i = 2;
     while(i < argc)
     {
