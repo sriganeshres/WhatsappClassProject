@@ -49,10 +49,11 @@ int main(int argc, char** argv)
     fp = fopen(filename, "r");
     //open chat file
     os = fopen("Report.txt", "w");
-    //target file for user out put
+    //target file for intermediate output
     char line[1000] ,temp[1000], temp1[1000];
     while(fgets(line, 1000, fp) != NULL)
     {
+        //copies all the usernmaes into taget files
         strncpy(temp, line+15, 1000);
         copySubstring(temp, temp1);
         if(strlen(temp1))
@@ -78,28 +79,33 @@ int main(int argc, char** argv)
             int ver = 0;
             for(int i = 0; i < index; i++)
             {
+                //checks whether repeated or not
                 if(strcmp(array[i].name, name) == 0)
                 {
+                    //same
                     ver = i;
                     flag = 0;
                     break;
                 }
                 else
-                    flag = 1; 
+                    flag = 1; // not same
             }
             if(flag == 1)
             {
+                //new
                 strcpy(array[index].name, name);
                 array[index].count++; 
                 index++;
             }
             else
             {
+                //repeat
                 array[ver].count++;
             }
         }
     }
     qsort(array, index, sizeof(NameArr), compareNames);
+    //sorts the array according to names as per comparenames function
     for(int i = 0; i < index; i++)
     {
         printf("%s %d\n",array[i].name, array[i].count);
