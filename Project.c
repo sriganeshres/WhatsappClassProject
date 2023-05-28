@@ -1,15 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-int findpos(char* src, const char name)
-{
-    for(int i = 0; src[i] != '\0'; i++)
-    {
-        if(src[i] == name)
-            return i+1;
-    }
-    return -1;
-}
 void copySubstring(const char* original, char* destination) 
 {
     // Find the position of the hyphen
